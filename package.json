@@ -1,0 +1,44 @@
+{
+  "name": "babel-it",
+  "description": "A cli tool to babelify your code before npm publish.",
+  "keywords": [
+    "babel",
+    "it",
+    "a",
+    "cli",
+    "tool",
+    "to",
+    "babelify",
+    "your",
+    "code",
+    "before",
+    "npm",
+    "publish"
+  ],
+  "license": "MIT",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)",
+  "files": [
+    "bin/",
+    "app/",
+    "lib/",
+    "dist/",
+    "src/",
+    "resources/",
+    "menu/",
+    "cli.js",
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/IonicaBizau/babel-it.git"
+  },
+  "bugs": {
+    "url": "https://github.com/IonicaBizau/babel-it/issues"
+  },
+  "homepage": "https://github.com/IonicaBizau/babel-it#readme"
+}
