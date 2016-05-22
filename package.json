@@ -15,6 +15,9 @@
     "npm",
     "publish"
   ],
+  "bin": {
+    "babel-it": "./bin/babel-it"
+  },
   "license": "MIT",
   "version": "1.0.0",
   "main": "lib/index.js",
@@ -53,6 +56,9 @@
     "typpy": "^2.3.2"
   },
   "blah": {
-      "related": ["dist-it"]
-  }
+    "related": [
+      "dist-it"
+    ]
+  },
+  "devDependencies": {}
 }

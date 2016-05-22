@@ -13,7 +13,7 @@ const spawn = require("spawno")
 const BABEL_PATH = require.resolve("babel-cli/bin/babel.js");
 
 
-tilda(`${__dirname}/../package.json`, {
+new tilda(`${__dirname}/../package.json`, {
     options: [
         {
             name: "path"
@@ -40,14 +40,15 @@ tilda(`${__dirname}/../package.json`, {
       , next => {
             spawn(BABEL_PATH, oargv({
                 _: a.options.input.value
-                d: a.options.output.value
+              , d: a.options.output.value
             }), { _showOutput: true }, next);
         }
+      , next => spawn("git", ["checkout", "."], next)
     ], (err, data) => {
         if (err) {
             return a.exit(err);
         }
-        console.log(data);
+        console.log("Done.");
     });
 });
 
