@@ -1,0 +1,53 @@
+#!/usr/bin/env node
+
+"use strict";
+
+const spawn = require("spawno")
+    , oargv = require("oargv")
+    , tilda = require("tilda")
+    , typpy = require("typpy")
+    , queue = require("one-by-one")
+    , gitStatus = require("git-status")
+    ;
+
+const BABEL_PATH = require.resolve("babel-cli/bin/babel.js");
+
+
+tilda(`${__dirname}/../package.json`, {
+    options: [
+        {
+            name: "path"
+          , opts: ["i", "input"]
+          , desc: "The input file paths."
+          , default: "."
+        }
+      , {
+            name: "path"
+          , opts: ["o", "output"]
+          , desc: "The output directory."
+          , default: "."
+        }
+    ]
+}).main(a =>{
+
+    if (!typpy(a.options.input.value, Array)) {
+        a.options.input.value = [a.options.input.value];
+    }
+
+    queue([
+        gitStatus
+      , (next, data) => next(data.length && new Error("Please commit the changes in your git repository first."))
+      , next => {
+            spawn(BABEL_PATH, oargv({
+                _: a.options.input.value
+                d: a.options.output.value
+            }), { _showOutput: true }, next);
+        }
+    ], (err, data) => {
+        if (err) {
+            return a.exit(err);
+        }
+        console.log(data);
+    });
+});
+
