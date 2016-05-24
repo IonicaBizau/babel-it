@@ -57,8 +57,10 @@ new tilda(`${__dirname}/../package.json`, {
             sameTime(bindy(files, (cPath, cb) => {
                 babel.transformFile(cPath, {
                     presets: [es2015]
+                  , babelrc: false
                 }, (err, result) => {
                     if (err) { return cb(err); }
+                    logger.log(`Babelifying ${cPath}.`);
                     fs.writeFile(cPath, result.code, cb);
                 });
             }), next);
