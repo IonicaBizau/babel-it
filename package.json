@@ -16,7 +16,7 @@
     "publish"
   ],
   "bin": {
-    "babel-it": "./bin/babel-it"
+    "babel-it": "./bin/babel-it.js"
   },
   "license": "MIT",
   "version": "1.0.0",

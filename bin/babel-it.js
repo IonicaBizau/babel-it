@@ -51,9 +51,7 @@ new tilda(`${__dirname}/../package.json`, {
                 _: a.options.input.value
               , d: a.options.output.value
               , ignore: "node_modules"
-            }), { _showOutput: true }, function (err, stdout, stderr) {
-            debugger
-            });
+            }), { _showOutput: true }, next);
         }
       , a.options["skip-publish"].is_provided ? null : next => {
             logger.log("Publishing on npm.");
