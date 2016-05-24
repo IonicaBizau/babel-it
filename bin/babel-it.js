@@ -10,6 +10,7 @@ const spawn = require("spawno")
     , gitStatus = require("git-status")
     , spawnNpm = require("spawn-npm")
     , logger = require("bug-killer")
+    , fs = require("fs")
     ;
 
 const BABEL_PATH = require.resolve("babel-cli/bin/babel.js");
@@ -46,12 +47,20 @@ new tilda(`${__dirname}/../package.json`, {
         gitStatus
       , (next, data) => next(data.length && new Error("Please commit the changes in your git repository first."))
       , next => {
+            logger.log("Creating .babelrc.");
+            wJson(".babelrc", { presets: ["es2015"] }, next)
+        }
+      , next => {
             logger.log("Babelifying the things.");
             spawn(BABEL_PATH, oargv({
                 _: a.options.input.value
               , d: a.options.output.value
               , ignore: "node_modules"
             }), { _showOutput: true }, next);
+        }
+      , next => {
+            logger.log("Removing .babelrc.");
+            fs.unlink(".babelrc", next)
         }
       , a.options["skip-publish"].is_provided ? null : next => {
             logger.log("Publishing on npm.");
