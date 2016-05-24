@@ -19,8 +19,6 @@ const spawn = require("spawno")
     , bindy = require("bindy")
     ;
 
-const BABEL_PATH = require.resolve("babel-cli/bin/babel.js");
-
 new tilda(`${__dirname}/../package.json`, {
     options: [
         {
