@@ -1,6 +1,6 @@
 {
   "name": "babel-it",
-  "description": "A cli tool to babelify your code before npm publish.",
+  "description": "Babelify your code before `npm publish`.",
   "keywords": [
     "babel",
     "it",
@@ -65,5 +65,8 @@
       "dist-it"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "blah": {
+    "h_img": "http://i.imgur.com/DNBxR1S.png"
+  }
 }
