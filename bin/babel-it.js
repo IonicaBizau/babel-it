@@ -49,7 +49,6 @@ new tilda(`${__dirname}/../package.json`, {
       , (next, data) => next(data.length && new Error("Please commit the changes in your git repository first."))
       , next => {
             logger.log("Getting the files to update.");
-            console.log(a.options.input.value);
             glob(a.options.input.value, { ignore: a.options.ignore.value }, next);
         }
       , (next, files) => {
