@@ -62,6 +62,7 @@ new tilda(`${__dirname}/../package.json`, {
             spawn("git", ["checkout", "."], next);
         }
     ], (err, data) => {
+    debugger
         if (err) {
             return a.exit(err);
         }
