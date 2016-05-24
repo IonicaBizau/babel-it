@@ -9,6 +9,7 @@ const spawn = require("spawno")
     , queue = require("one-by-one")
     , gitStatus = require("git-status")
     , spawnNpm = require("spawn-npm")
+    , logger = require("bug-killer")
     ;
 
 const BABEL_PATH = require.resolve("babel-cli/bin/babel.js");
@@ -45,14 +46,21 @@ new tilda(`${__dirname}/../package.json`, {
         gitStatus
       , (next, data) => next(data.length && new Error("Please commit the changes in your git repository first."))
       , next => {
+            logger.log("Babelifying the things.");
             spawn(BABEL_PATH, oargv({
                 _: a.options.input.value
               , d: a.options.output.value
               , ignore: "node_modules"
             }), { _showOutput: true }, next);
         }
-      , a.options["skip-publish"].is_provided ? null : next => spawnNpm("publish", next)
-      , a.options["skip-checkout"].is_provided ? null : next => spawn("git", ["checkout", "."], next)
+      , a.options["skip-publish"].is_provided ? null : next => {
+            logger.log("Publishing on npm.");
+            spawnNpm("publish", next);
+        }
+      , a.options["skip-checkout"].is_provided ? null : next => {
+            logger.log("Reseting the changes using git.");
+            spawn("git", ["checkout", "."], next);
+        }
     ], (err, data) => {
         if (err) {
             return a.exit(err);
