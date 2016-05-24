@@ -8,6 +8,7 @@ const spawn = require("spawno")
     , typpy = require("typpy")
     , queue = require("one-by-one")
     , gitStatus = require("git-status")
+    , spawnNpm = require("spawn-npm")
     ;
 
 const BABEL_PATH = require.resolve("babel-cli/bin/babel.js");
@@ -26,9 +27,16 @@ new tilda(`${__dirname}/../package.json`, {
           , desc: "The output directory."
           , default: "."
         }
+      , {
+            opts: ["skip-publish"]
+          , desc: "If this option is provided, the `npm publish` step will be skipped."
+        }
+      , {
+            opts: ["skip-checkout"]
+          , desc: "If this option is provided, the `git checkout` step will be skipped."
+        }
     ]
 }).main(a =>{
-
     if (!typpy(a.options.input.value, Array)) {
         a.options.input.value = [a.options.input.value];
     }
@@ -40,9 +48,11 @@ new tilda(`${__dirname}/../package.json`, {
             spawn(BABEL_PATH, oargv({
                 _: a.options.input.value
               , d: a.options.output.value
+              , ignore: "node_modules"
             }), { _showOutput: true }, next);
         }
-      , next => spawn("git", ["checkout", "."], next)
+      , a.options["skip-publish"].is_provided ? null : next => spawnNpm("publish", next)
+      , a.options["skip-checkout"].is_provided ? null : next => spawn("git", ["checkout", "."], next)
     ], (err, data) => {
         if (err) {
             return a.exit(err);
