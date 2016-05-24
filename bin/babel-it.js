@@ -58,7 +58,7 @@ new tilda(`${__dirname}/../package.json`, {
             spawnNpm("publish", {}, { _showOutput: true }, next);
         }
       , a.options["skip-checkout"].is_provided ? null : next => {
-            logger.log("Reseting the changes using git.");
+            logger.log("Resetting the changes using git.");
             spawn("git", ["checkout", "."], next);
         }
     ], (err, data) => {
