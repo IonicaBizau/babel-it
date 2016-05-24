@@ -51,6 +51,7 @@
     "bug-killer": "^4.2.2",
     "emoji-logger": "^1.0.2",
     "git-status": "0.0.0",
+    "glob": "^7.0.3",
     "oargv": "^3.4.2",
     "one-by-one": "^3.2.0",
     "same-time": "^2.3.1",
