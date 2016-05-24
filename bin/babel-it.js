@@ -45,7 +45,7 @@ new tilda(`${__dirname}/../package.json`, {
           , desc: "If this option is provided, the `git checkout` step will be skipped."
         }
     ]
-}).main(a =>{
+}).main(a => {
     queue([
         gitStatus
       , (next, data) => next(data.length && new Error("Please commit the changes in your git repository first."))
