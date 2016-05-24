@@ -7,6 +7,38 @@
 
 > Babelify your code before `npm publish`.
 
+## :cloud: Installation
+
+You can install the package globally and use it as command line tool:
+
+
+```sh
+$ npm i -g babel-it
+```
+
+
+Then, run `babel-it --help` and see what the CLI tool can do.
+
+
+```
+$ babel-it --help
+Usage: babel-it [options]
+
+Babelify your code before `npm publish`.
+
+Options:
+  -i, --input <path>   The input file paths.
+  -I, --ignore <path>  The files to ignore.
+  --skip-publish       If this option is provided, the `npm publish` step
+                       will be skipped.
+  --skip-checkout      If this option is provided, the `git checkout` step
+                       will be skipped.
+  -v, --version        Displays version information.
+  -h, --help           Displays this help.
+
+Documentation can be found at https://github.com/IonicaBizau/babel-it#readme.
+```
+
 ## :yum: How to contribute
 Have an idea? Found a bug? See [how to contribute][contributing].
 
