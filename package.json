@@ -52,7 +52,7 @@
     "git-status": "0.0.0",
     "oargv": "^3.4.2",
     "one-by-one": "^3.2.0",
-    "spawn-npm": "^1.1.0",
+    "spawn-npm": "^1.2.0",
     "spawno": "^1.0.1",
     "tilda": "^4.3.0",
     "typpy": "^2.3.2"
