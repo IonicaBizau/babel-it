@@ -19,7 +19,7 @@
     "babel-it": "./bin/babel-it.js"
   },
   "license": "MIT",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -61,12 +61,7 @@
     "w-json": "^1.3.2"
   },
   "blah": {
-    "related": [
-      "dist-it"
-    ]
-  },
-  "devDependencies": {},
-  "blah": {
     "h_img": "http://i.imgur.com/DNBxR1S.png"
-  }
+  },
+  "devDependencies": {}
 }
