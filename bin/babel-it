@@ -55,18 +55,17 @@ new tilda(`${__dirname}/../package.json`, {
         }
       , a.options["skip-publish"].is_provided ? null : next => {
             logger.log("Publishing on npm.");
-            spawnNpm("publish", next);
+            spawnNpm("publish", {}, { _showOutput: true }, next);
         }
       , a.options["skip-checkout"].is_provided ? null : next => {
             logger.log("Reseting the changes using git.");
             spawn("git", ["checkout", "."], next);
         }
     ], (err, data) => {
-    debugger
         if (err) {
             return a.exit(err);
         }
-        console.log("Done.");
+        logger.log("Done.");
     });
 });
 
