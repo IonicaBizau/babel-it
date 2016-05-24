@@ -11,6 +11,7 @@ const spawn = require("spawno")
     , spawnNpm = require("spawn-npm")
     , logger = require("bug-killer")
     , fs = require("fs")
+    , wJson = require("w-json")
     ;
 
 const BABEL_PATH = require.resolve("babel-cli/bin/babel.js");
