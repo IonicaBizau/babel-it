@@ -62,7 +62,11 @@
     "w-json": "^1.3.2"
   },
   "blah": {
-    "h_img": "http://i.imgur.com/DNBxR1S.png"
+    "h_img": "http://i.imgur.com/DNBxR1S.png",
+    "related": [
+      "ship-release",
+      "dist-it"
+    ]
   },
   "devDependencies": {}
 }
