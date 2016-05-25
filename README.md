@@ -48,6 +48,13 @@ If you are using this library in one of your projects, add it in this list. :spa
 
  - [`ship-release`](https://github.com/IonicaBizau/ship-release#readme)—Publish new versions on GitHub and npm with ease.
 
+## :sparkles: Related
+
+ - [`ship-release`](https://github.com/IonicaBizau/ship-release#readme)—Publish new versions on GitHub and npm with ease.
+ - [`dist-it`](https://github.com/IonicaBizau/dist-it)—Generate minified bundles from modular inputs using Browserify.
+
+
+
 ## :scroll: License
 
 [MIT][license] © [Ionică Bizău][website]
