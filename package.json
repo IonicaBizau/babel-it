@@ -19,7 +19,7 @@
     "babel-it": "./bin/babel-it.js"
   },
   "license": "MIT",
-  "version": "1.0.10",
+  "version": "1.1.0",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -51,13 +51,13 @@
     "babel-preset-es2015": "^6.9.0",
     "bindy": "^1.0.2",
     "bug-killer": "^4.2.2",
-    "git-status": "0.0.0",
+    "git-status": "^1.0.3",
     "glob": "^7.0.3",
     "oargv": "^3.4.2",
     "one-by-one": "^3.2.0",
     "same-time": "^2.3.1",
     "spawn-npm": "^1.2.0",
-    "spawno": "^1.0.1",
+    "spawno": "^2.0.2",
     "tilda": "^4.3.0",
     "typpy": "^2.3.2",
     "w-json": "^1.3.2"

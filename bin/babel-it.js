@@ -66,7 +66,7 @@ new tilda(`${__dirname}/../package.json`, {
         }
       , a.options.skipPublish.is_provided ? null : next => {
             logger.log("Publishing on npm.");
-            spawnNpm("publish", {}, { _showOutput: true }, next);
+            spawnNpm("publish", {}, { output: true }, next);
         }
       , a.options.skipCheckout.is_provided ? null : next => {
             logger.log("Resetting the changes using git.");
