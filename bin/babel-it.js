@@ -16,6 +16,7 @@ const spawn = require("spawno")
     , wJson = require("w-json")
     , sameTime = require("same-time")
     , es2015 = require("babel-preset-es2015")
+    , runtime = require("babel-plugin-transform-runtime")
     , bindy = require("bindy")
     ;
 
@@ -56,6 +57,7 @@ new tilda(`${__dirname}/../package.json`, {
             sameTime(bindy(files, (cPath, cb) => {
                 babel.transformFile(cPath, {
                     presets: [es2015]
+                  , plugins: [runtime]
                   , babelrc: false
                 }, (err, result) => {
                     if (err) { return cb(err); }
@@ -74,6 +76,7 @@ new tilda(`${__dirname}/../package.json`, {
         }
     ], (err, data) => {
         if (err) {
+            logger.log(err, "error");
             return a.exit(err);
         }
         logger.log("Done.");
