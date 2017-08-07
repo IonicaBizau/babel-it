@@ -57,7 +57,13 @@ new tilda(`${__dirname}/../package.json`, {
             sameTime(bindy(files, (cPath, cb) => {
                 babel.transformFile(cPath, {
                     presets: [es2015]
-                  , plugins: [runtime]
+                  , plugins: [
+                    // TODO By adding this, the projects need babel-runtime as dependency
+                    //      Not sure why I needed this at all
+                    //    [runtime, {
+                    //        moduleName: "fooo"
+                    //    }]
+                    ]
                   , babelrc: false
                 }, (err, result) => {
                     if (err) { return cb(err); }
