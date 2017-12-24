@@ -15,7 +15,11 @@ You can install the package globally and use it as command line tool:
 
 
 ```sh
-$ npm i -g babel-it
+# Using npm
+npm install --global babel-it
+
+# Using yarn
+yarn global add babel-it
 ```
 
 
